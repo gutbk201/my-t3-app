@@ -18,6 +18,7 @@ specifiers:
   eslint-config-next: 13.0.2
   next: 13.0.2
   next-auth: ^4.18.3
+  next-themes: ^0.2.1
   postcss: ^8.4.14
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
@@ -40,6 +41,7 @@ dependencies:
   '@trpc/server': 10.7.0
   next: 13.0.2_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.18.7_pknogjuzx4bv7zxtatcb2ahtsq
+  next-themes: 0.2.1_pknogjuzx4bv7zxtatcb2ahtsq
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   superjson: 1.9.1
@@ -1804,6 +1806,18 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-themes/0.2.1_pknogjuzx4bv7zxtatcb2ahtsq:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 13.0.2_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /next/13.0.2_biqbaboplfbrettd7655fr4n2y:
