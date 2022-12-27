@@ -4,6 +4,9 @@ import { useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 
 const Todos: NextPage = () => {
+  // const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
+  const todos = trpc.todo.getAll.useQuery();
+  console.log(todos.data);
   return (
     <main className="">
       <h2>Todos</h2>
