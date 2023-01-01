@@ -60,16 +60,17 @@ model User {
 }
 
 model Todo {
-  id     String @id @default(cuid())
-  text   String
-  hidden Hidden @default(OFF)
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  id        String   @id @default(cuid())
+  text      String
+  hidden    Hidden   @default(FALSE)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
 }
 
 enum Hidden {
-  ON
-  OFF
+  TRUE
+  FALSE
 }
 
 model VerificationToken {
