@@ -24,11 +24,7 @@ export const todoRouter = router({
           },
         },
       },
-      // orderBy: [
-      //   {
-      //     role: 'desc',
-      //   },
-      // ],
+      orderBy: [{ createdAt: "desc" }],
     });
   }),
   postOne: publicProcedure
