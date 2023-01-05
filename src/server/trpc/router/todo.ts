@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-import { router, publicProcedure } from "../trpc";
+import { router, protectedProcedure } from "../trpc";
 
 export const todoRouter = router({
-  getAll: publicProcedure.query(({ ctx }) => {
+  getAll: protectedProcedure.query(({ ctx }) => {
     // ctx.prisma.todo.create({
     //   data:{
     //     text:'123',
@@ -27,7 +27,7 @@ export const todoRouter = router({
       orderBy: [{ createdAt: "desc" }],
     });
   }),
-  postOne: publicProcedure
+  postOne: protectedProcedure
     .input(
       z.object({
         text: z.string().min(1),
@@ -46,7 +46,7 @@ export const todoRouter = router({
       });
       return createdTodo;
     }),
-  removeOne: publicProcedure
+  removeOne: protectedProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async ({ input, ctx }) => {
       const updatedTodo = await ctx.prisma.todo.update({

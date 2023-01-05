@@ -19,7 +19,6 @@ export default function Navbar() {
       <Link href="/">
         <HomeIcon />
       </Link>
-      <Link href="/counter">Counter</Link>
       <Link href="/todos">Todos</Link>
     </nav>
   );
