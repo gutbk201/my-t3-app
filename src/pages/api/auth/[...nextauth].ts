@@ -8,8 +8,8 @@ import { env } from "env/server.mjs";
 import { prisma } from "server/db/client";
 
 export const authOptions: NextAuthOptions = {
-  // session:{
-  //   strategy:"jwt"
+  // session: {
+  //   strategy: "jwt",
   // },
   // Include user.id on session
   callbacks: {
@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
       profile(profile) {
-        console.log(profile);
+        console.log({ profile });
         return {
           id: profile.id,
           name: profile.username,
