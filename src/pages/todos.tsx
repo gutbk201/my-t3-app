@@ -1,10 +1,9 @@
 import { FormEvent, ChangeEvent, useState } from "react";
-import { type NextPage } from "next";
 import { trpc } from "../utils/trpc";
 import { useTodoTrpc } from "hooks/useTodoTrpc";
-import type { GetServerSideProps } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import { unstable_getServerSession } from "next-auth/next";
-import { authOptions } from "pages/api/auth/[...nextauth]";
+import { authOptions, unAuthRedirection } from "pages/api/auth/[...nextauth]";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await unstable_getServerSession(
@@ -12,15 +11,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     ctx.res,
     authOptions
   );
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/api/auth/signin",
-        permanent: false,
-      },
-    };
-  }
-
+  if (!session) return unAuthRedirection;
   return {
     props: {
       session,
