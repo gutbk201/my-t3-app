@@ -20,11 +20,11 @@ export const authOptions: NextAuthOptions = {
   // },
   // Include user.id on session
   callbacks: {
-    session({ session, user, token }) {
+    session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
       }
-      return { ...session, token, abc: 123 };
+      return { ...session, abc: 123 };
     },
   },
   adapter: PrismaAdapter(prisma),
@@ -34,7 +34,7 @@ export const authOptions: NextAuthOptions = {
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
       profile(profile) {
-        // console.log({ profile });
+        console.log({ profile });
         return {
           id: profile.id,
           name: profile.username,

@@ -4,14 +4,6 @@ import { router, protectedProcedure } from "../trpc";
 
 export const todoRouter = router({
   getAll: protectedProcedure.query(({ ctx }) => {
-    // ctx.prisma.todo.create({
-    //   data:{
-    //     text:'123',
-    //     user:{
-
-    //     }
-    //   }
-    // })
     return ctx.prisma.todo.findMany({
       select: {
         id: true,

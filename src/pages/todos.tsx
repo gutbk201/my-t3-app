@@ -12,11 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     authOptions
   );
   if (!session) return unAuthRedirection;
-  return {
-    props: {
-      session,
-    },
-  };
+  return { props: { session } };
 };
 
 const Todos: NextPage = () => {
