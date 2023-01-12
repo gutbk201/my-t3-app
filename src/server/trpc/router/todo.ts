@@ -20,28 +20,21 @@ export const todoRouter = router({
     });
   }),
   postOne: protectedProcedure
-    .input(
-      z.object({
-        text: z.string().min(1),
-      })
-    )
-    .mutation(async ({ input, ctx }) => {
-      const userId = ctx.session?.user?.id || "";
-      const createdTodo = await ctx.prisma.todo.create({
+    .input(z.object({ text: z.string().min(1) }))
+    .mutation(({ ctx, input }) => {
+      const userId = ctx.session.user.id;
+      const createdPost = ctx.prisma.todo.create({
         data: {
           text: input.text,
-          // userId,
-          user: {
-            connect: { id: userId },
-          },
+          user: { connect: { id: userId } },
         },
       });
-      return createdTodo;
+      return createdPost;
     }),
   removeOne: protectedProcedure
     .input(z.object({ id: z.string() }))
-    .mutation(async ({ input, ctx }) => {
-      const updatedTodo = await ctx.prisma.todo.update({
+    .mutation(({ ctx, input }) => {
+      const updatedTodo = ctx.prisma.todo.update({
         where: { id: input.id },
         data: { hidden: "TRUE" },
       });
