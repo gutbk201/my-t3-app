@@ -12,7 +12,7 @@ export const useTodoTrpc = () => {
       utils.todo.getAll.invalidate();
     },
   });
-  const addTodo = ({ text }: { text: string }) => trpcAdd.mutate({ text });
-  const removeTodo = ({ id }: { id: string }) => trpcRemove.mutate({ id });
-  return { addTodo, removeTodo };
+  // const addTodo = ({ text }: { text: string }) => trpcAdd.mutate({ text });
+  // const removeTodo = ({ id }: { id: string }) => trpcRemove.mutate({ id });
+  return { addTodo: trpcAdd.mutate, removeTodo: trpcRemove.mutate };
 };

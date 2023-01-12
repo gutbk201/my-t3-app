@@ -5,6 +5,7 @@ import { router, protectedProcedure } from "../trpc";
 export const todoRouter = router({
   getAll: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.todo.findMany({
+      where: { hidden: "FALSE" },
       select: {
         id: true,
         text: true,
