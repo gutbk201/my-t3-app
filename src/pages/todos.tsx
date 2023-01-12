@@ -2,8 +2,10 @@ import { FormEvent, ChangeEvent, useState } from "react";
 import { trpc } from "../utils/trpc";
 import { useTodoTrpc } from "hooks/useTodoTrpc";
 import type { GetServerSideProps, NextPage } from "next";
-import { unAuthRedirection } from "pages/api/auth/[...nextauth]";
-import { getServerAuthSession } from "server/common/get-server-auth-session";
+import {
+  getServerAuthSession,
+  unAuthRedirection,
+} from "server/common/get-server-auth-session";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // const session = await unstable_getServerSession(

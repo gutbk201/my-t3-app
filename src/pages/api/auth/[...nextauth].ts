@@ -7,13 +7,6 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { env } from "env/server.mjs";
 import { prisma } from "server/db/client";
 
-export const unAuthRedirection = {
-  redirect: {
-    destination: "/api/auth/signin",
-    permanent: false,
-  },
-};
-
 export const authOptions: NextAuthOptions = {
   // session: {
   //   strategy: "jwt",

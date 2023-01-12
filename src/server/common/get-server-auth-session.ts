@@ -13,3 +13,10 @@ export const getServerAuthSession = async (ctx: {
 }) => {
   return await unstable_getServerSession(ctx.req, ctx.res, authOptions);
 };
+
+export const unAuthRedirection = {
+  redirect: {
+    destination: "/api/auth/signin",
+    permanent: false,
+  },
+};
